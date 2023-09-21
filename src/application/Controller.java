@@ -19,10 +19,10 @@ public class Controller {
 
 	public void initialize() {
 		target = (int)(min+Math.random()*(max-min));
+		
 	}
 
 	public void applySetting(ActionEvent e) {
-
 		if (startText.getText().length() > 0)
 			min = Integer.valueOf(startText.getText());
 		if (rangeText.getText().length() > 0)
@@ -49,12 +49,16 @@ public class Controller {
 	}
 
 	public void submitGuessing() {
+		
 		if (attempts <= 0) {
 			result.setText("you lose!");
 			return;
 		}
-		if (guessText.getText().length() > 0)
-			yourGuess = Integer.valueOf(guessText.getText());
+		if (guessText.getText().length() <= 0 || !onlyNumber(guessText.getText())) {
+			result.setText("invalid input!");
+			return;
+		}
+		yourGuess = Integer.valueOf(guessText.getText());
 		if (yourGuess > target) {
 			attempts--;
 			result.setText("too big! "+attempts+" left");
@@ -64,6 +68,15 @@ public class Controller {
 		} else result.setText("bingo! the answer is: "+target);
 		System.out.println(target);
 		System.out.println(yourGuess);
+	}
+
+	public boolean onlyNumber(String s) {
+		for (char c : s.toCharArray()) {
+			if (!Character.isDigit(c)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	public Controller() {

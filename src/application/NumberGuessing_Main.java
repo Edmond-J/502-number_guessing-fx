@@ -20,7 +20,7 @@ public class NumberGuessing_Main extends Application {
 			Pane container = new Pane();
 			game = FXMLLoader.load(getClass().getResource("game.fxml"));
 			setting = FXMLLoader.load(getClass().getResource("setting.fxml"));
-//			setting.setVisible(false);
+			setting.setVisible(false);
 			container.getChildren().addAll(game, setting);
 //			Button button=new Button("submit");
 //			container.getChildren().add(button);
