@@ -4,7 +4,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
+
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -12,10 +14,14 @@
       <Button fx:id="submitButton" layoutX="323.0" layoutY="302.0" mnemonicParsing="false" text="Submit" />
       <TextField fx:id="guessText" layoutX="220.0" layoutY="243.0" />
       <Label layoutX="220.0" layoutY="215.0" text="Your Guess :" />
-      <Label fx:id="result" layoutX="255.0" layoutY="96.0" text="Ready" textAlignment="CENTER" textFill="#61b7b8">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
+      <StackPane layoutY="100.0" prefHeight="40.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="result" text="Ready" textAlignment="CENTER" textFill="#61b7b8">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
    </children>
 </Pane>
