@@ -1,6 +1,5 @@
 package application;
 
-
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,11 +17,11 @@ public class NumberGuessing_Main extends Application {
 	private Parent setting;
 	private int min = 0, max = 20, attempts = 5, yourGuess, target;
 	@FXML
-	private TextField startText, rangeText, attamptsText,guessText;
+	private TextField startText, rangeText, attamptsText, guessText;
 	@FXML
 	private Button applyButton, settingButton, submitButton;
 
-	public void initialize() {
+	public void setupInitialValue() {
 		target = (int)(min+Math.random()*(max-min));
 		min = 0;
 		max = 20;
@@ -31,10 +30,10 @@ public class NumberGuessing_Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) {
-		initialize();
+		setupInitialValue();
 		try {
 			Pane container = new Pane();
-			FXMLLoader gameLoader= new FXMLLoader(getClass().getResource("game.fxml"));
+			FXMLLoader gameLoader = new FXMLLoader(getClass().getResource("game.fxml"));
 			gameLoader.setController(this);
 			game = gameLoader.load();
 //			setting = FXMLLoader.load(getClass().getResource("setting.fxml"));
@@ -60,7 +59,7 @@ public class NumberGuessing_Main extends Application {
 					attempts = Integer.valueOf(attamptsText.getText());
 				setting.setVisible(false);
 			});
-				Label result = (Label)game.lookup("#result");
+			Label result = (Label)game.lookup("#result");
 //			Button settingButton = (Button)game.lookup("#settingButton");
 			settingButton.setOnMouseClicked(e -> {
 				if (setting.isVisible())
@@ -87,7 +86,7 @@ public class NumberGuessing_Main extends Application {
 					result.setText("Too small, "+attempts+" times left");
 				} else {
 					result.setText("Bingo! the answer is: "+target);
-					initialize();
+					setupInitialValue();
 				}
 				if (attempts <= 0) {
 					result.setText("you lose");
