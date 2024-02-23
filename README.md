@@ -5,7 +5,7 @@ Find the executable application (number_guessing-fx.exe) from Google Drive:
 [Edmond's Java Program Collection.zip (Windows)](https://drive.google.com/file/d/1ve7sEscvtVldRKZU-B3VhaQdORteksQk/view?usp=drive_link)
 
 ## Snapshot
-![UI](screenshot/ui-1.png)
+<img src="screenshot/ui-1.png" style="max-width: 50%"> 
 
 ## Features
 - Can set the range, attampts
